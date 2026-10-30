@@ -1,0 +1,20 @@
+# Build output
+**/bin/
+**/obj/
+
+# IDE / user-specific
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+
+# Tests / coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,22 @@
+name: .NET build and tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up .NET SDK 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Restore
+        run: dotnet restore CampusScheduler.sln
+      - name: Build
+        run: dotnet build CampusScheduler.sln --configuration Release --no-restore
+      - name: Run MSTest suite
+        run: dotnet test CampusScheduler.sln --configuration Release --no-build --no-restore --verbosity normal
